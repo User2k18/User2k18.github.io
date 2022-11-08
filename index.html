@@ -1,9 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
- <head>
-   <title></title>
- </head>
- <body>
-   <p>Cheese</p>
- </body>
+<head>
+<title>Hello</title>
+<link rel="icon" href="favicon/frame (1).gif" type="image/gif" />
+<script defer>
+    
+// Will execute myCallback every 0.5 seconds 
+var intervalID = window.setInterval(change_title,300);
+var titlenumber = 0;
+var image_counter = 0;
+
+function change_title(){
+var array_of_titles = ["***Hello***","****Hello**","*****Hello*","******Hello","o******Hell","lo******Hel","llo******He","ello******H","Hello******","*Hello*****","**Hello***"];
+	document.title = array_of_titles[titlenumber];
+	titlenumber++;
+	if(titlenumber > 9){
+	titlenumber = 0;
+	}
+	if(document.querySelector("link[rel='icon']") !== null)
+        document.querySelector("link[rel='icon']").remove();
+    if(document.querySelector("link[rel='shortcut icon']") !== null)
+        document.querySelector("link[rel='shortcut icon']").remove();
+        
+    // add new favicon image
+    document.querySelector("head").insertAdjacentHTML('beforeend', '<link rel="icon" href="favicon/frame('+image_counter+')).gif" type="image/gif">');
+    
+    // If last image then goto first image
+    // Else go to next image    
+    if(image_counter == 56)
+        image_counter = 1;
+    else
+        image_counter++;
+}
+
+</script>
+</head>
+
+<body>
+    <h2>Hello My Name Is <h1>Rick</h1></h2>
+	And this is my profile
+</body>
 </html>
